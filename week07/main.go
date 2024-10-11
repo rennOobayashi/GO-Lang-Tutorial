@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -10,9 +11,13 @@ func main() {
 	in := bufio.NewReader(os.Stdin)
 	fmt.Println("Input ur name: ")
 	name, err := in.ReadString('\n')
-	fmt.Println(name)
-	fmt.Println(err)
-	//fmt.Println(i)
+
+	if err != nil {
+		log.Fatal(err)
+	} else {
+		fmt.Println(name)
+	}
+	// fmt.Println(err)
 
 	// var army string = "우리는 $가와 $민에 충성을 다하는 대한민$ 육군이다."
 	// armyfixed := strings.NewReplacer("$", "국")
