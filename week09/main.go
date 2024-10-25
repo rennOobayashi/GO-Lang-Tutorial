@@ -1,55 +1,23 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"log"
 	"math/rand"
-	"os"
-	"strconv"
-	"strings"
-	"time"
 )
 
 func main() {
-	var win bool = false
+	//fmt.Printf("%f 나누기 %f 은(는) %f입니다.\n", 1.0, 3.0, 1.0/3.0) //바로 출력
 
-	rand.Seed(time.Now().Unix())
-	answer := rand.Intn(6)
-	//fmt.Println(answer)
-
-	for guesses := 0; guesses < 3; guesses++ {
-		fmt.Printf("숫자입력(남은 기회 %d회): ", 3-guesses)
-		in := bufio.NewReader(os.Stdin)
-		i, err := in.ReadString('\n')
-
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		i = strings.TrimSpace(i)
-		guess, _ := strconv.Atoi(i)
-
-		if answer == guess {
-			fmt.Println("입력하신 수는 정답입니다.")
-
-			win = true
-			break
-		} else if answer > guess {
-			fmt.Println("입력하신 수는 정답보다 작은 수 입니다.")
-		} else {
-			fmt.Println("입력하신 수는 정답보다 큰 수 입니다.")
-		}
+	i := 1
+	for i <= 10 {
+		//fmt.Printf("%3d\n", i)
+		fmt.Printf("%4d\n", rand.Intn(1000)+1)
+		i++
 	}
 
-	if win {
-		fmt.Print("\n********************\n")
-		fmt.Println("*당신이 이겼습니다.*")
-		fmt.Print("********************")
-	} else {
-		fmt.Print("\n--------------------------------\n")
-		fmt.Printf("|당신이 졌습니다, 답은 %d입니다.|\n", answer)
-		fmt.Print("--------------------------------")
-	}
+	//fmt.Printf("%T\n", i)
 
+	result := fmt.Sprintf("%0.2f 나누기 %0.2f 은(는) %0.2f입니다.\n", 1.0, 3.0, 1.0/3.0) //서식 문자열 반환
+
+	fmt.Print(result)
 }
