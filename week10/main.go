@@ -32,8 +32,12 @@ func main() {
 	//1 is not prime number
 	if n <= 1 {
 		isPrime = false
+	} else if n == 2 {
+		//2 is prime number
+	} else if n%2 == 0 {
+		isPrime = false //even number is not prime number
 	} else {
-		j := 2
+		j := 3
 		for j <= int((math.Sqrt(float64(n)))) {
 			if n%j == 0 {
 				isPrime = false
@@ -42,7 +46,7 @@ func main() {
 			}
 			fmt.Printf("%d ", j)
 
-			j++
+			j += 2
 		}
 	}
 
