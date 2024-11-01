@@ -26,17 +26,19 @@ func main() {
 		log.Fatal(err)
 	}
 
-	cnt := 0
+	//cnt := 0
+	isPrime := true //가독성과 메모리 효율성 증가
 	j := 2
 	for j < n {
 		if n%j == 0 {
-			cnt++
+			//cnt++
+			isPrime = false //더하기 연사 제거
 		}
 
 		j++
 	}
 
-	if cnt == 0 {
+	if isPrime { //== 비교 연산 제거
 		fmt.Printf("%d is prime number.\n", n)
 	} else {
 		fmt.Printf("%d is not prime number.\n", n)
