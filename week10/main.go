@@ -37,11 +37,14 @@ func main() {
 			if n%j == 0 {
 				isPrime = false
 
+				break //performance up
 			}
 
 			j++
 		}
 	}
+
+	fmt.Printf("\n")
 
 	if isPrime {
 		fmt.Printf("%d is prime number.\n", n)
