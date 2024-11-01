@@ -27,8 +27,8 @@ func main() {
 	}
 
 	cnt := 0
-	j := 1
-	for j <= n {
+	j := 2
+	for j < n {
 		if n%j == 0 {
 			cnt++
 		}
@@ -36,7 +36,7 @@ func main() {
 		j++
 	}
 
-	if cnt == 2 {
+	if cnt == 0 {
 		fmt.Printf("%d is prime number.\n", n)
 	} else {
 		fmt.Printf("%d is not prime number.\n", n)
