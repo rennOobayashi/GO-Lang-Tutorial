@@ -3,10 +3,15 @@ package greeting
 import "fmt"
 
 // 대문자로 시작하지 않으면 외부에서 쓸수 없음
-func Hi(name string) {
+func hi(name string) {
 	fmt.Printf("Hi %s!\n", name)
 }
 
-func Hello(name string) {
+func hello(name string) {
 	fmt.Printf("Hello %s!\n", name)
+}
+
+func EnglishGreetings(name string) {
+	hi(name)
+	hello(name)
 }
