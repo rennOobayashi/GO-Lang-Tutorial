@@ -15,7 +15,7 @@ func GetInteger() (int, error) {
 		return 0, err
 	}
 	i = strings.TrimSpace(i)
-	n, _ := strconv.Atoi(i)
+	n, err := strconv.Atoi(i)
 
 	if err != nil {
 		return 0, err
