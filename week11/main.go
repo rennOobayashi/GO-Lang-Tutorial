@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"week11/keyboard"
+	//"github.com/headfirstgo/keyboard"
 )
 
 func isPrime(number int) bool {
