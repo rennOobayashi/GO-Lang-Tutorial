@@ -2,27 +2,13 @@ package main
 
 import (
 	"fmt"
-	"log"
-
-	"github.com/headfirstgo/keyboard"
+	"reflect"
 )
 
 func main() {
-	var gpa [3]float64
+	arr := [5]float64{3.5, 4.1, 4.5, 3.2, 4.0} //array var
+	slice := arr[:4]                           //slice var
 
-	for i := 0; i < len(gpa); i++ {
-		fmt.Printf("input float number: ")
-		s, err := keyboard.GetFloat()
-
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		gpa[i] = s
-
-	}
-
-	for _, score := range gpa {
-		fmt.Printf("%f ", score)
-	}
+	fmt.Println(arr, reflect.TypeOf(arr))
+	fmt.Println(slice, reflect.TypeOf(slice))
 }
