@@ -11,18 +11,19 @@ func test(i int, strs ...string) {
 }
 
 func main() {
-	slices := os.Args[1:]
+	if len(os.Args) > 1 {
+		slices := os.Args[1:]
 
-	fmt.Println(slices[1])
+		fmt.Println(slices[1])
 
-	for _, slice := range slices {
-		fmt.Println(slice)
+		for _, slice := range slices {
+			fmt.Println(slice)
+		}
+
+		slices = append(slices, "forever", "!")
+
+		fmt.Println(slices, len(slices))
 	}
-
-	slices = append(slices, "forever", "!")
-
-	fmt.Println(slices, len(slices))
-
 	test(1, "abc")
 	test(2, "abc", "dec")
 	test(3, "abc", "abc", "abc")
