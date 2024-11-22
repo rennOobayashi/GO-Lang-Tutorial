@@ -5,9 +5,15 @@ import (
 )
 
 func main() {
-	var empty_slice []int
-	//empty_slice = make([]int, 5)
-	fmt.Printf("%#v\n", empty_slice)
+	var empty_slice []bool
+	empty_slice = make([]bool, 5)
+	fmt.Printf("%#v %d\n", empty_slice, len(empty_slice))
+
+	if len(empty_slice) == 5 {
+		empty_slice = append(empty_slice, true)
+	}
+
+	fmt.Printf("%#v %d\n", empty_slice, len(empty_slice))
 
 	arr := [5]float64{3.5, 4.1, 4.5, 3.2, 4.0} //array var
 	slice := arr[1:4]                          //slice var
