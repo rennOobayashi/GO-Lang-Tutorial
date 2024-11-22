@@ -2,32 +2,20 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
 
 func main() {
-	var empty_slice []bool
-	empty_slice = make([]bool, 5)
-	fmt.Printf("%#v %d\n", empty_slice, len(empty_slice))
+	slices := os.Args[1:]
 
-	if len(empty_slice) == 5 {
-		empty_slice = append(empty_slice, true)
+	fmt.Println(slices[1])
+
+	for _, slice := range slices {
+		fmt.Println(slice)
 	}
 
-	fmt.Printf("%#v %d\n", empty_slice, len(empty_slice))
+	slices = append(slices, "forever", "!")
 
-	arr := [5]float64{3.5, 4.1, 4.5, 3.2, 4.0} //array var
-	slice := arr[1:4]                          //slice var
+	fmt.Println(slices, len(slices))
 
-	//slice[1] = 2.71
-	arr[2] = 2.71
-	slice = append(slice, 4.3, 4.55)
-	slice2 := append(slice, 1, 2)
-
-	fmt.Println(slice, slice2)
-
-	slice2[0] = 0
-
-	fmt.Println(slice, slice2)
-
-	fmt.Println(len(slice), slice, arr)
 }
