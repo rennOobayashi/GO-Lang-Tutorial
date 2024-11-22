@@ -3,7 +3,12 @@ package main
 import (
 	"fmt"
 	"os"
+	"reflect"
 )
+
+func test(i int, strs ...string) {
+	fmt.Println(i, strs, reflect.TypeOf(strs))
+}
 
 func main() {
 	slices := os.Args[1:]
@@ -18,4 +23,8 @@ func main() {
 
 	fmt.Println(slices, len(slices))
 
+	test(1, "abc")
+	test(2, "abc", "dec")
+	test(3, "abc", "abc", "abc")
+	test(4)
 }
