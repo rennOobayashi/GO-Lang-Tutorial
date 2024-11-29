@@ -31,16 +31,16 @@ func main() {
 		fmt.Print("Input age: ")
 		fmt.Scanln(&age)
 
-		if age < 12 {
+		switch {
+		case age < 12:
 			vs[i] = visiter{age: age, price: 5000}
-		} else if age < 65 {
+		case age < 65:
 			vs[i] = visiter{age: age, price: 10000}
-		} else {
+		default:
 			vs[i] = visiter{age: age, price: 7000}
 		}
 	}
 
-	fmt.Println("======================")
-
+	fmt.Println("====================")
 	fmt.Printf("Total price : %d", calculate_price(vs))
 }
