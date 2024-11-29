@@ -2,25 +2,45 @@ package main
 
 import "fmt"
 
-type student struct {
-	id   int
-	name string
-	gpa  float32
+type visiter struct {
+	age   int
+	price int
+}
+
+// strcuct slice parameter
+func calculate_price(visiters []visiter) int {
+	var total_price int
+	for _, v := range visiters {
+		total_price += v.price
+	}
+	return total_price
 }
 
 func main() {
-	var student1 student
-	student1.id = 202444123
-	student1.name = "이인희"
-	student1.gpa = 4.42
+	var numVisiters int
+	var vs []visiter
 
-	fmt.Println(student1.gpa)
+	fmt.Printf("How many visiters: ")
+	fmt.Scanln(&numVisiters)
 
-	var student2 student
-	student2.id = 202444456
-	student2.name = "리인희"
-	student2.gpa = 2.44
+	vs = make([]visiter, numVisiters)
 
-	fmt.Println(student2.id)
+	for i := 0; i < numVisiters; i++ {
+		var age int
 
+		fmt.Print("Input age: ")
+		fmt.Scanln(&age)
+
+		if age < 12 {
+			vs[i] = visiter{age: age, price: 5000}
+		} else if age < 65 {
+			vs[i] = visiter{age: age, price: 10000}
+		} else {
+			vs[i] = visiter{age: age, price: 7000}
+		}
+	}
+
+	fmt.Println("======================")
+
+	fmt.Printf("Total price : %d", calculate_price(vs))
 }
